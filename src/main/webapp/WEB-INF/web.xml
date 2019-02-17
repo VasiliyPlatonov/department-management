@@ -17,4 +17,14 @@
         <location>/pages/error-page.jsp</location>
     </error-page>
 
+    <jsp-config>
+        <jsp-property-group>
+            <display-name>header_and_footer</display-name>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>WEB-INF/common/header.jspf</include-prelude>
+            <include-coda>WEB-INF/common/footer.jspf</include-coda>
+        </jsp-property-group>
+    </jsp-config>
+
 </web-app>
