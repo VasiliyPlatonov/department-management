@@ -11,7 +11,7 @@ CREATE SCHEMA IF NOT EXISTS `department_management` DEFAULT CHARACTER SET utf8 ;
 CREATE TABLE `department_management`.`departments` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `parent_department` INT NULL,
+  `parent_id` INT NULL,
   PRIMARY KEY (`id`));
 ```
 
