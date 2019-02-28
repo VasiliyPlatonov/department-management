@@ -11,8 +11,8 @@ CREATE SCHEMA IF NOT EXISTS `department_management` DEFAULT CHARACTER SET utf8 ;
 CREATE TABLE `department_management`.`departments` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `parent_department` INT NULL,
-  PRIMARY KEY (`id`));
+  `parent_id` INT NULL,
+  PRIMARY KEY (`id`));git 
 ```
 
 ``` sql
@@ -28,4 +28,5 @@ CREATE TABLE `department_management`.`employees` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 ```
-[![Diagram of database](DB.png)]
+
+![Diagram of database](DB.png)
