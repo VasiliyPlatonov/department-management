@@ -4,7 +4,7 @@ public class Employee {
     private int id;
     private String firstName;
     private String lastName;
-    private Department department;
+    private Integer departmentId;
 
     public int getId() {
         return id;
@@ -30,22 +30,22 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public Department getDepartment() {
-        return department;
+    public Integer getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
     }
 
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, Department department) {
+    public Employee(int id, String firstName, String lastName, Integer departmentId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.department = department;
+        this.departmentId = departmentId;
     }
 
     @Override
