@@ -22,8 +22,9 @@ public class JdbcUtil {
 
     public static Connection getConnection() {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             logger.error("Occurred SQLException while trying to get a connection", e);
         }
         return connection;
