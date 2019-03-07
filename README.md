@@ -1,6 +1,8 @@
 # Department management.
 
-This is a simple java web application that uses servlet, jsp and jdbc, is created as test work for the MetaPrime
+    This is a simple java web application that uses servlet, jsp, jdbc bootstrap 4, jQuery and ajax.
+    It was created as test work for the MetaPrime
+![Action gif](Departments.gif)
 
 ### Instructions for creating the schema and tables required to run the application.
 **For creating the schema and tables in MYSQL:**
