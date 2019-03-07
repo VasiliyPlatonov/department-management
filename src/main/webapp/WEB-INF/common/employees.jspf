@@ -1,0 +1,90 @@
+<%@ page import="io.github.vasiliyplatonov.departmentmanagement.dao.impl.jdbc.EmployeeJdbcDao" %>
+<%@ page import="io.github.vasiliyplatonov.departmentmanagement.domain.Employee" %>
+<%@ page import="io.github.vasiliyplatonov.departmentmanagement.dao.impl.jdbc.GenericJdbcDao" %>
+
+<jsp:useBean id="employeeDao"
+             class="io.github.vasiliyplatonov.departmentmanagement.dao.impl.jdbc.EmployeeJdbcDao"
+             scope="application"/>
+<jsp:useBean id="departmentDao"
+             class="io.github.vasiliyplatonov.departmentmanagement.dao.impl.jdbc.DepartmentJdbcDao"
+             scope="application"/>
+
+<c:set var="employees"
+       value="${employeeDao.findAll()}"
+       scope="session"/>
+
+<c:set var="departments"
+       value="${departmentDao.findAll()}"
+       scope="session"/>
+
+
+<div id="employees" class="container pt-5">
+    <%@include file="modal/deleteEmployee.jspf" %>
+    <%@include file="modal/editEmployee.jspf" %>
+    <%@include file="modal/addEmployee.jspf" %>
+
+    <div class="row">
+        <h2 class="mb-3">Employees</h2>
+        <div class="table-responsive">
+            <table class="employee-table table table-striped table-sm mb-5">
+
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+
+
+                <tbody>
+                <c:forEach var="emp" items="${employees}">
+                    <tr id="tr-employee-${emp.id}"
+                        data-employee-id="${emp.id}"
+                        data-employee-firstname="${emp.firstName}"
+                        data-employee-lastname="${emp.lastName}"
+                        data-employee-department-id="${emp.departmentId}"
+                    >
+                        <td>${emp.id}</td>
+                        <td>${emp.firstName}</td>
+                        <td>${emp.lastName}</td>
+                        <td>${departmentDao.findOne(emp.departmentId).name}</td>
+                        <td class="employee-table__actions">
+                            <button type="button"
+                                    class="btn btn-outline-secondary mr-2"
+                                    data-toggle="modal"
+                                    data-target="#modalDeleteEmployee"
+                            >
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <button type="button"
+                                    class="btn btn-outline-secondary"
+                                    data-toggle="modal"
+                                    data-target="#modalEditEmployee"
+                            >
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+
+    <div class="row justify-content-between">
+        <button class="btn btn-outline-primary btn-lg"
+                type="button"
+                data-toggle="modal"
+                data-target="#modalAddEmployee">
+            Add Employee
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
+</div>

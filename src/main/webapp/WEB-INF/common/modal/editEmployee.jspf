@@ -1,0 +1,68 @@
+<div id="modalEditEmployee" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Edit employee</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <h5 class="mb-4">Enter new data for edit the employee:</h5>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Id</span>
+                            </div>
+                            <input name="id"
+                                   type="hidden"
+                                   class="form-control">
+                            <div class="modal-edit-employee__id form-control"></div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">First name</span>
+                            </div>
+                            <input type="text"
+                                   name="firstName"
+                                   class="form-control">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Last name</span>
+                            </div>
+                            <input type="text"
+                                   name="lastName"
+                                   class="form-control">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text"
+                                       for="editEmpDepartSelect">Department</label>
+                            </div>
+                            <select id="editEmpDepartSelect"
+                                    name="departmentId"
+                                    class="custom-select"
+                            >
+                                <option selected>Choose...</option>
+                                <c:forEach var="dep" items="${departments}">
+                                    <option value="${dep.id}">${dep.name}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close
+                </button>
+                <button type="button" class="modal-edit-employee__submit btn btn-outline-primary">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
